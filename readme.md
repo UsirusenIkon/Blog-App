@@ -88,13 +88,13 @@ To setup and install this sample ROR Blog project, follow the below steps:
 - Clone this project by the command: 
 
 ```
-$ git clone https://github.com/NahnahAJ/Blog-App.git
+$ git clone https://github.com/UsirusenIkon/Blog-App.git
 ```
 
 - Then switch to the project folder by the bellow query:
 
 ```
-$ cd blograils
+$ cd Blog-App
 ```
 
 - Install the required dependecies with `bundle install`
