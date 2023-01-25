@@ -12,6 +12,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
+# rubocop:disable Metrics/BlockLength
 ActiveRecord::Schema[7.0].define(version: 20_230_125_150_212) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'adminpack'
@@ -62,3 +64,4 @@ ActiveRecord::Schema[7.0].define(version: 20_230_125_150_212) do
   add_foreign_key 'likes', 'users'
   add_foreign_key 'posts', 'users'
 end
+# rubocop:enable Metrics/BlockLength
