@@ -1,28 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe Comment, type: :model do
-  person = User.create(
-    name: 'Duane',
-    photo: 'https://duane.com/me.png',
-    bio: 'Iam Duane David.',
-    posts_counter: 0
-  )
-
-  post = Post.create(
-    title: 'Today',
-    text: 'Blue sky',
-    comments_counter: 0,
-    likes_counter: 0,
-    user_id: person.id
-  )
-
-  comment = Comment.create(post:)
-
-  context 'update_comments_counter' do
-    comment.update_comments_counter
-
-    it ' incriment comments_counter' do
-      expect(Post.find(post.id).comments_counter).eql?(post.comments_counter + 1)
-    end
+RSpec.describe 'counter' do
+  it 'increments when a new comment is created' do
+    first_post = Post.create(author: User.create(name: 'Tom'), title: 'Hi', text: 'This is the first post')
+    second_user = User.create(name: 'Jerry')
+    expect { Comment.create(post_id: first_post.id, author_id: second_user.id, text: 'Hi Tom!') }.to change {
+                                                                                                       Comment.count
+                                                                                                     }.by(1)
   end
 end

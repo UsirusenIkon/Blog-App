@@ -5,7 +5,7 @@ RSpec.describe Like, type: :model do
 
   describe 'associations' do
     it 'belongs to author' do
-      like = Like.reflect_on_association(:user_id)
+      like = Like.reflect_on_association(:author)
       expect(like.macro).to eq(:belongs_to)
     end
 
@@ -17,7 +17,7 @@ RSpec.describe Like, type: :model do
 
   describe 'update_likes_counter' do
     let(:user) { User.create(name: 'John Doe') }
-    let(:post) { Post.create(title: 'Post 1', user_id: user) }
+    let(:post) { Post.create(title: 'Post 1', author: user) }
     let(:like) { Like.create(author: user, post:) }
 
     it 'increments the likes counter on the associated post' do
