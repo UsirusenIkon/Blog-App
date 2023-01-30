@@ -1,3 +1,0 @@
-# PagesHelper
-module PagesHelper
-end
