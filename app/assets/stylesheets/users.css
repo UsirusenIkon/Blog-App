@@ -1,0 +1,50 @@
+body {
+  background-color: silver;
+  margin: 1rem;
+}
+
+.main {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content {
+  width: 100%;
+  max-width: 30rem;
+}
+
+.box {
+  margin: 1rem 0;
+  justify-content: center;
+  gap: 2rem;
+  height: 5rem;
+  background-color: aliceblue;
+  padding: 0.5rem;
+}
+
+.img {
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  width: clamp(4rem 7vw 7rem);
+}
+
+img {
+  width: 4rem;
+}
+
+.user-details {
+  border: 1px solid black;
+  width: 100%;
+  max-width: 25rem;
+  padding: 0 1rem;
+  position: relative;
+}
+
+.post-no {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
