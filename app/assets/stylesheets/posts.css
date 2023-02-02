@@ -1,0 +1,9 @@
+.user-details {
+  justify-content: space-between;
+  width: calc(100% - 2rem);
+  max-width: none;
+}
+
+.box {
+  height: fit-content;
+}
