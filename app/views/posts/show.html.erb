@@ -1,1 +1,36 @@
-<h1>Grey is silver</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "users_show", "users", "posts" %>
+    <%= javascript_importmap_tags %>
+
+  </head>
+
+  <body class="main">
+    <section class="content">
+      <h1><%= @user.name %>'s Post Detail</h1>
+
+      <div class="box">
+        <div class="user-details flex">
+          <p><%= @post.title %> by <%= @user.name %></p>
+          <p>
+            comments: <%= @post.comments_counter %>, likes: <%= @post.likes_counter %>
+          </p>
+        </div>
+        <% if @post.comments_counter == 0 %>
+          <p>There are no comments for this post.</p>
+        <% else %>
+          <% @post.comments.each do |comment| %>
+            <% poster = comment.author_id%>
+            <% poster = User.find(poster) %>
+            <p><%= poster.name %>: <%= comment.text %></p>
+          <% end %>
+        <% end %>
+      </div>
+    </section>
+  </body>
+</html>

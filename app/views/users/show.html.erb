@@ -1,2 +1,45 @@
-<h1>users in silver's web</h1>
-<p>http://localhost:3000/users/index</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "users_show", "users" %>
+    <%= javascript_importmap_tags %>
+
+  </head>
+
+  <body class="main">
+    <section class="content">
+      <h1><%= @user.name %>'s Profile</h1>
+
+      <div class="box flex">
+        <div class='img flex'>
+          <img src="<%= @user.photo %>" alt="unsplash">
+        </div>
+        <div class="user-details">
+          <p><%= @user.name %></p>
+            <span class="post-no">number of posts: <%= @user.posts_counter %></span>
+        </div>
+      </div>
+
+      <div class="bio">
+        <h2>Bio</h2>
+        <p><%= @user.bio %></p>
+      </div>
+
+      <% @user.recent_posts.each do |post| %>
+        <div class="post">
+          <p><b><%= post.title %></b></p>
+          <p><%= post.text %></p>
+          <div class="come_like flex">
+            <span>comments: <%= post.comments_counter %>, likes: <%= post.likes_counter %></span>
+          </div>
+        </div>
+      <% end %>
+
+      <button class="posts-btn"><%= link_to "See all Posts", user_posts_path(@user) %></button>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+.bio {
+  background-color: aliceblue;
+  padding: 0.5rem;
+}
+
+.post {
+  background-color: aliceblue;
+  padding: 0.5rem;
+  position: relative;
+  margin: 1rem 0;
+}
+
+.come_like {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+}

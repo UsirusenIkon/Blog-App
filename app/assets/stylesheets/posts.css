@@ -1,0 +1,10 @@
+.user-details {
+  justify-content: space-between;
+  width: calc(100% - 2rem);
+  max-width: none;
+}
+
+.box {
+  /* stylelint-disable-next-line */
+  height: fit-content;
+}
