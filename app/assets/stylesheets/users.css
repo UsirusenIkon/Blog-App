@@ -28,7 +28,7 @@ body {
   align-items: center;
   justify-content: center;
   border: 1px solid black;
-  width: clamp(4rem 7vw 7rem);
+  width: 3rem;
 }
 
 img {
