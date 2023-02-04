@@ -15,21 +15,33 @@
       <h1><%= @user.name %>'s Post Detail</h1>
 
       <div class="box">
-        <div class="user-details flex">
-          <p><%= @post.title %> by <%= @user.name %></p>
-          <p>
-            comments: <%= @post.comments_counter %>, likes: <%= @post.likes_counter %>
-          </p>
+        <div class="user-post">
+          <div class="user-details flex">
+            <p><%= @post.title %> by <%= @user.name %></p>
+            <p>
+              comments: <%= @post.comments_counter %>, likes: <%= @post.likes_counter %>
+            </p>
+          </div>
+          <p><%= @post.text %></p>
+          <button><%= link_to "like", new_user_post_like_path(@user.id, @post.id) %></button>
         </div>
-        <% if @post.comments_counter == 0 %>
-          <p>There are no comments for this post.</p>
-        <% else %>
-          <% @post.comments.each do |comment| %>
-            <% poster = comment.author_id%>
-            <% poster = User.find(poster) %>
-            <p><%= poster.name %>: <%= comment.text %></p>
+        <div class="user_comments">
+          <% if @post.comments_counter == 0 %>
+            <p>There are no comments for this post.</p>
+            <% else %>
+              <% @post.comments.each do |comment| %>
+              <% poster = comment.author_id%>
+              <% poster = User.find(poster) %>
+              <p><%= poster.name %>: <%= comment.text %></p>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
+        <button>
+          <%= link_to "Add new Post", new_user_post_path(@user.id, @post.id) %>
+        </button>
+        <button>
+          <%= link_to "Add a Comment", new_user_post_comment_path(@user.id, @post.id) %>
+        </button>
       </div>
     </section>
   </body>
