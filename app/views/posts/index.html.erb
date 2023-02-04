@@ -18,6 +18,7 @@
         <div class="come_like">
           <span>comments: <%= post.comments_counter %>, likes: <%= post.likes_counter %></span>
         </div>
+
         <div class="comments">
           <% if post.comments_counter == 0 %> 
             <span>There are no comments for this post.</span>
@@ -25,11 +26,9 @@
             <% post.recent_comments.each do |comment| %>
               <p><%= comment.author.name %>: <%= comment.text %></p>
             <% end %>
-            </div>
-              <button class="post-btn">
-                <%= link_to "See Post", user_post_path(post.author_id, post.id) %>
-              </button>
-            </div>
+            <button class="post-btn">
+              <%= link_to "See Post", user_post_path(post.author_id, post.id) %>
+            </button>
           <% end %>
         </div>
       </div>

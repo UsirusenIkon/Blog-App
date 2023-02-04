@@ -2,9 +2,23 @@
   justify-content: space-between;
   width: calc(100% - 2rem);
   max-width: none;
+  border: none;
+  padding: 0;
 }
 
 .box {
   /* stylelint-disable-next-line */
   height: fit-content;
+  padding: 1rem;
+}
+
+.user-post {
+  border: 1px solid;
+  padding: 0 1rem
+}
+
+.user_comments {
+  margin-top: 1rem;
+  padding: 0 1rem;
+  border: 1px solid;
 }
