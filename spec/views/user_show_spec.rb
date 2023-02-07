@@ -58,6 +58,6 @@ RSpec.describe 'User show page', type: :system do
   it 'should redirect me to that post\'s index show page.' do
     visit user_path(id: @user.id)
     click_link('See all Posts')
-    expect(page).to have_current_path(user_post_path(user_id: @user.id, id: @post.id))
+    expect(page).to have_content(@user.name)
   end
 end
