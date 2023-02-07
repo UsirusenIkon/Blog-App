@@ -8,14 +8,13 @@ RSpec.describe 'User show page', type: :system do
       posts_counter: 1
     )
     @user1 = User.create(
-      name: 'Ikon',
+      name: 'Vic',
       photo: 'https://i.imgur.com/9yG7zZT.jpg',
-      bio: 'I love basketball',
+      bio: 'I love games',
       posts_counter: 1
     )
-    @post1 = Post.create(author: @user, title: 'Intro', body: 'This is my first post')
-    @post2 = Post.create(author: @user1, title: 'Promo', body: 'hello ya`ll!')
-    @post3 = Post.create(author: @user1, title: 'Volvo', body: 'Great Logo!')
+    @post1 = Post.create(author: @user, title: 'Intro', text: 'This is my first post')
+    @post2 = Post.create(author: @user1, title: 'Promo', text: 'hello ya`ll!')
     visit user_path(id: @user.id)
   end
 
@@ -42,23 +41,23 @@ RSpec.describe 'User show page', type: :system do
   it 'should see the user\'s first 3 posts' do
     visit user_path(id: @user.id)
     expect(page).to have_content(@post1.title)
-    expect(page).to have_content(@post2.body)
+    expect(page).to have_content(@post1.text)
   end
 
   it 'should see a button that lets me view all of a user\'s posts.' do
     visit user_path(id: @user.id)
-    expect(page).to have_css('btn')
+    expect(page).to have_content('See all Posts')
   end
 
   it 'should redirect me to that post\'s show page.' do
     visit user_path(id: @user.id)
-    click_link('See all posts')
+    click_link('See all Posts')
     expect(page).to have_current_path(user_posts_path(@user))
   end
 
   it 'should redirect me to that post\'s index show page.' do
     visit user_path(id: @user.id)
-    click_link(@post1.title)
+    click_link('See all Posts')
     expect(page).to have_current_path(user_post_path(user_id: @user.id, id: @post.id))
   end
 end
