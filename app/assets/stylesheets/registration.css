@@ -1,0 +1,31 @@
+.content { 
+  padding: 1rem;
+}
+
+#user_name {
+  width: calc(100% - 0.5rem);
+}
+
+#user_email {
+  width: calc(100% - 0.5rem);
+}
+
+#user_password {
+  width: calc(100% - 0.5rem);
+}
+
+#user_password_confirmation {
+  width: calc(100% - 0.5rem);
+}
+
+#user_bio {
+  width: calc(100% - 0.5rem);
+}
+
+#user_photo {
+  width: calc(100% - 0.5rem);
+}
+
+.actions > input {
+  width: 100%;
+}
